@@ -24,8 +24,11 @@
 9. We can schedule these jobs to run using schedulers like airflow, dbt cloud etc. 
    Environment variables/ Parameters can be defined and passed while using dbt run command.
 
-10. Different cluster key can be added based on table granularity and key for better performance
-11. Staging table can be created for raw data, if required to ensure data quality and better performance
+10. Different cluster key can be added based on table granularity and key for better performance.
+
+11. Staging table can be created for raw data, if required to ensure data quality and better performance.
+
+12. DBT Test can be used to perform tests on data model (given that DBT is used by organization).
    
 
 ##### Assumption
