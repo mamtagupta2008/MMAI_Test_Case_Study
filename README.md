@@ -1,3 +1,25 @@
+#### Inconsistency observed in the case study model presented
+
+   I was not very clear about the model representation provided in the case, 
+   as the relationship between Page_impressions and Ad Service Interaction were not clear. 
+
+   The model shows many to one relationship between the 2 tables(Page_impressions and Ad Service Interaction) 
+   based on Ads User ID.
+
+   1. Is Ads User ID an unique key in Ads Service Interaction table? It doesn't mention anything like that 
+   and if that's the case, then the many to one relationship between Ad Service Interaction 
+   & OAuth_ID_Service gets voided as ads_user_id is shown to be propagated into the parent table 
+   (Oauth_id_service) and its not even an array field. Not sure how it could hold many to one relationship 
+   without any of these points mentioned above?
+
+   2. If Ads User ID is not an unique key, then there is really no direct relationship between ads 
+   service interaction and Page Impressions as shown in the model.
+
+   They both should relate to each other via Oauth_id_service as depicted in below snapshot.
+
+![image](https://user-images.githubusercontent.com/55711347/134106850-2034b792-f203-44e7-9d66-76df5e135f23.png)
+
+
 #### Important Notes
 
 1. All the SQLs are using keywords as per Snowflake standards.
@@ -33,7 +55,11 @@
 
 ##### Assumption
    All the users (both registered and non registered) will have entry in from page_impression.
-   
+
+##### Q4: User Journey sample data:
+
+![image](https://user-images.githubusercontent.com/55711347/134107024-bbd77e12-d16c-4593-a962-ddb5c1fbd6f5.png)
+
 ##### Q5: User segmentation: 
    User segmentation could be done at any of the "content" attribute levels. 
    (E.g.: Content Type, Content Name, content id...)
@@ -59,4 +85,12 @@
 	
 ![image](https://user-images.githubusercontent.com/55711347/133958464-55e9d08b-20ff-43c5-a977-c09a0828590e.png)
 
-
+##### Common Test Cases for each model:
+   1. Verify the uniqueness of data based on key columns (Example: content_id and view_date combination in Q1).
+   2. Verify for the not NULL value on the key fields (Example: content_id and as_at_date in Q2)
+   3. Contents present in the reporting models are all present in content_metadata.
+   4. Verify the entries for all dates from calendar in relevant tables 
+        (For Example in Q2 there should be as_at_date should be there for every calendar day ).
+   5. Verify the user id present in user specific tables are present in source tables. 
+  
+   We can use DBT test or Great Expectation test to apply these data health checks on our daily load.
