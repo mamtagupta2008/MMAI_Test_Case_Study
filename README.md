@@ -54,7 +54,7 @@
 User journey can be tracked based on traversing the user activity prior to registration from one content to another. 
 This can be achieved with visualizations like the Sankey chart.
 
-Sankey chart can provide a pictorial view (behavioral flow) of how the journey started from first content 
+Multi-level Sankey chart can provide a pictorial view (behavioral flow) of how the journey started from first content 
 (found out based on minimum timestamp within a given session id) and thereby progressing further into next steps.
 
 
