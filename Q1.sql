@@ -6,6 +6,7 @@
 
 -- Option 1: Top 5 contents based on number of users
 -- This CTE will return total number of users viewed the content for the day
+
 WITH get_user_counts AS
 (
 SELECT i.content_id
@@ -89,8 +90,9 @@ FROM rank_daily_contents r
 WHERE r.rank_average <= 5
 
 
---- TEST Case Scenarios
+-----  Case specific TEST Case Scenarios ---------------------
 
 --1. Verify max viewed content for a given day by sorting them descending based on user count
---2. Verify all contents were active on the given test day
+--2. Verify corner cases; For e.g. all contents were active on the given test day
 --3. Verify against date to make sure we have data present for all the dates
+--4. Randomly check for different ranks for few random dates based on time spent on the content
