@@ -48,15 +48,25 @@
 
 10. Different cluster key can be added based on table granularity and key for better performance.
 
-11. Staging table can be created for raw data, if required to ensure data quality and better performance.
 
-12. DBT Test can be used to perform tests on data model (given that DBT is used by organization).
-   
+##### Q4: User Journey:
 
-##### Assumption
-   All the users (both registered and non registered) will have entry in from page_impression.
+User journey can be tracked based on traversing the user activity prior to registration from one content to another. 
+This can be achieved with visualizations like the Sankey chart.
 
-##### Q4: User Journey sample data:
+Sankey chart can provide a pictorial view (behavioral flow) of how the journey started from first content 
+(found out based on minimum timestamp within a given session id) and thereby progressing further into next steps.
+
+
+Basic Table model to hold such information could look like below:
+
+User_id
+session_id
+Starting_Content_id
+Ending_Content_id
+timespent_on_content
+
+Sample data will look something like below table:
 
 ![image](https://user-images.githubusercontent.com/55711347/134107024-bbd77e12-d16c-4593-a962-ddb5c1fbd6f5.png)
 
