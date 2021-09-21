@@ -48,6 +48,8 @@
 
 10. Different cluster key can be added based on table granularity and key for better performance.
 
+11. Data dictionery can be created to track data lineage and can be used as business glossary by product analyst.
+
 
 ##### Q4: User Journey:
 
